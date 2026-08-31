@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include "transaction.h"
 #include "account.h"
 using namespace std;
@@ -6,9 +7,17 @@ using namespace std;
 
 int main() {
 
-    Account ada("Ada Lovelace", 500);
+    cout << fixed << setprecision(2);
 
-    cout << "Opening account: ";
+    Account ada("Ada Lovelace", 500.00);
+
+    cout << "Opening account: " << ada.ToString();
+
+    cout << endl << endl;
+
+    cout << "Recording five requests...";
+
+
 
     return 0;
 }

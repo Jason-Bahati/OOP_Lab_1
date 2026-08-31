@@ -30,6 +30,6 @@ using namespace std;
             }
         }
         std::string Account::ToString(){
-            return "{0}, ${1:N2}";
+            return owner + ", $" + std::to_string(balance);
         }
         

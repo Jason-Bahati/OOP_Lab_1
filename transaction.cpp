@@ -21,6 +21,6 @@ using namespace std;
         }
 
         std::string Transaction::Describe() {
-            return "{0,4}  {1,-12} ${2,10:N2}";
+            return std::to_string(id) + " " + kind + " $" + std::to_string(amount);
         }
         
