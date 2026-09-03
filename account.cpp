@@ -5,9 +5,9 @@
 using namespace std;
 
     
-    Account::Account(std::string Owner, double Balance){
+    Account::Account(std::string Owner, double startingBalance){
             owner = Owner;
-            balance = Balance;
+            balance = startingBalance;
         }
 
         bool Account::Deposit(double amount) {
@@ -15,21 +15,28 @@ using namespace std;
                 return false;
             }
             else {
-                amount += balance;
+                balance = amount + balance;
                 return true;
             }
         }
 
         bool Account::Withdraw(double amount){
-            if (amount <= 0){
+            if (amount <= 0 || amount > balance){
                 return false;
             }
             else {
-                balance -= amount;
+                balance = balance - amount;
                 return true;
             }
-        }
+        } 
         std::string Account::ToString(){
             return owner + ", $" + std::to_string(balance);
         }
         
+        std::string Account::getOwner() const {
+            return owner;
+        }
+
+        double Account::getBalance() const {
+            return balance;
+        }
