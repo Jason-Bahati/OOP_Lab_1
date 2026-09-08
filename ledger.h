@@ -4,6 +4,7 @@
 #include "account.h"
 #include "transaction.h"
 #include <vector>
+#include <string>
 
 
 class Ledger {

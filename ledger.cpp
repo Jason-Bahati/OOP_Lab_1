@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <cctype>
+#include <iomanip>
 
 #include "ledger.h"
 
@@ -39,13 +41,52 @@ using namespace std;
         return true;
         
     }
-    /* 
+     
     double Ledger::Total(std::string kind) {
-        for (int i = 0; i < history[]; i++){
-            if()
-            
+        double sum = 0;
+        for (int i = 0; i < history.size(); i++){
+            if(kind == history[i].getKind()) {
+                sum += history[i].getAmount();
             }
         }
-        */    
+        return sum;
+    }
+
+    void Ledger::PrintStatement() {
+        cout << std::string(40,'=') << endl;
+
+        std::string name = account.getOwner();
+
+        for(int i = 0; i < name.size(); i++) {
+            name[i] = toupper(name[i]);
+        }
+
+        cout << " STATEMENT FOR " << name << endl;
+        cout << std::string(40,'=') << endl;
+        cout << left << setw(5) << " ID" << setw(12) << "TYPE"
+         << right << setw(11) << "AMOUNT" << endl;
+
+        cout << std::string(40,'-') << endl;
+        
+        for(int i = 0; i < history.size(); i++) {
+            cout << history[i].Describe() << endl;
+        }
+        cout << std::string(40,'-') << endl;
+
+        cout << left << setw(17) << "Deposits:" << "$"
+        << right << setw(10) << fixed << setprecision(2)
+        << Total("Deposit") << endl;
+
+        cout << left << setw(17) << "Withdrawals:" << "$"
+        << right << setw(10) << fixed << setprecision(2)
+        << Total("Withdrawal") << endl;
+
+        cout << left << setw(17) << "Ending balance:" << "$"
+        << right << setw(10) << fixed << setprecision(2)
+        << account.getBalance() << endl;
+
+        cout << std::string(40,'=') << endl;
+    }
+           
 
     

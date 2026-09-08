@@ -1,5 +1,6 @@
 #ifndef TRANSACTION_H
 #define TRANSACTION_H
+#include <string>
 
 
 class Transaction {
@@ -16,6 +17,12 @@ class Transaction {
         bool isDeposit();
 
         std::string Describe();
+
+        std::string getKind() const;
+
+        double getAmount() const;
+
+        int getId() const;  
         
     };
 

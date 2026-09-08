@@ -1,4 +1,6 @@
 #include <iostream>
+#include <sstream>
+#include <iomanip>
 #include "account.h"
 
 
@@ -30,7 +32,9 @@ using namespace std;
             }
         } 
         std::string Account::ToString(){
-            return owner + ", $" + std::to_string(balance);
+            std::ostringstream os;
+            os << fixed << setprecision(2) << balance;
+            return owner + ", $" + os.str();
         }
         
         std::string Account::getOwner() const {
