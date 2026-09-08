@@ -44,7 +44,7 @@ using namespace std;
      
     double Ledger::Total(std::string kind) {
         double sum = 0;
-        for (int i = 0; i < history.size(); i++){
+        for (size_t i = 0; i < history.size(); i++){
             if(kind == history[i].getKind()) {
                 sum += history[i].getAmount();
             }
@@ -57,7 +57,7 @@ using namespace std;
 
         std::string name = account.getOwner();
 
-        for(int i = 0; i < name.size(); i++) {
+        for(size_t i = 0; i < name.size(); i++) {
             name[i] = toupper(name[i]);
         }
 
@@ -67,8 +67,7 @@ using namespace std;
          << right << setw(11) << "AMOUNT" << endl;
 
         cout << std::string(40,'-') << endl;
-        
-        for(int i = 0; i < history.size(); i++) {
+        for(size_t i = 0; i < history.size(); i++) {
             cout << history[i].Describe() << endl;
         }
         cout << std::string(40,'-') << endl;

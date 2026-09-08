@@ -2,6 +2,10 @@
 #define TRANSACTION_H
 #include <string>
 
+/*
+Represents a single deposit or withdrawal, unaware of account or ledger
+it stores an id, a "Deposit", or "Withdrawal" and a amount
+*/
 
 class Transaction {
     private:
@@ -12,13 +16,14 @@ class Transaction {
     
     public:
     
-    Transaction(int Id, std::string Kind, double Amount);
+    Transaction(int Id, std::string Kind, double Amount); // stores all three values in the private field
 
-        bool isDeposit();
+        bool isDeposit(); //returns true when kind is "Deposit"
 
-        std::string Describe();
+        std::string Describe(); //returns a formatted string
 
-        std::string getKind() const;
+// getters for kind, amount, and id
+        std::string getKind() const; 
 
         double getAmount() const;
 
